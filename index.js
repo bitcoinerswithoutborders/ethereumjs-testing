@@ -74,7 +74,7 @@ function skipTest (testName, skipList = []) {
  * @param {Function} Callback function which is invoked, and passed the contents of the specified file (or an error message)
  */
 const getTestFromSource = exports.getTestFromSource = function (file, onFile) {
-  let stream = fs.createReadStream(file)
+  const stream = fs.createReadStream(file)
   let contents = ''
   let test = null
 
@@ -89,8 +89,8 @@ const getTestFromSource = exports.getTestFromSource = function (file, onFile) {
       onFile(e)
     }
 
-    let testName = Object.keys(test)[0]
-    let testData = test[testName]
+    const testName = Object.keys(test)[0]
+    const testData = test[testName]
     testData.testName = testName
 
     onFile(null, testData)

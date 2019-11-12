@@ -1,6 +1,6 @@
 const testing = require('../index.js')
 
-let args = {}
+const args = {}
 args.dir = 'GeneralStateTests/stCallCodes'
 args.forkConfig = 'Byzantium'
 

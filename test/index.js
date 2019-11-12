@@ -15,7 +15,7 @@ tape('Test access tests', function (t) {
   })
 
   t.test('should read tests from args', function (st) {
-    let args = {}
+    const args = {}
     args.dir = 'GeneralStateTests/stCallCodes'
     args.file = 'callcall_00_d0g0v0'
     args.forkConfig = 'Byzantium'
