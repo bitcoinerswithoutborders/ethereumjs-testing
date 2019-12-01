@@ -1,30 +1,27 @@
+sudo: false
+os:
+  - linux
+  - osx
 language: node_js
+node_js:
+  - "5"
+  - "6"
+  - "8"
+  - "10"
+  - "11"
+  - "12"
+  - "13"
 addons:
   apt:
     sources:
-    - ubuntu-toolchain-r-test
+      - ubuntu-toolchain-r-test
     packages:
-    - g++-4.8
-
+      - g++-6
 env:
   global:
-    - DISPLAY=:99.0
-    - CXX=g++-4.8
+    - JOBS=2
+  matrix:
+    - TEST_SUITE=unit
 matrix:
   fast_finish: true
-  allowed_failures:
-    - node_js: "node"
-  include:
-    - os: linux
-      node_js: "8"
-      env: TEST_SUITE=lint
-    - os: linux
-      node_js: "8"
-      env: TEST_SUITE=test
-    - os: linux
-      node_js: "10"
-      env: TEST_SUITE=test
-    - os: linux
-      node_js: "node"
-      env: TEST_SUITE=test
 script: npm run $TEST_SUITE
